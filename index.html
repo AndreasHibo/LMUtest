@@ -1,44 +1,89 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-<title>LMU Test</title>
-<style>
-  * {
-  background-color: #45B29D; text-align: center;
-}
-h1 {
-  color: white;
-  background-color: rgb(50, 50, 50);
-   text-transform: uppercase;
-}
-h6 {
-  font-family: "Arial Bold", Arial, sans-serif;
-}
-strong {
- text-transform:none; 
-} 
-p {font-size:medium }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chatter|App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!--  * {
+        background-color:aqua text-align:left;
+      } 
 
-</style>
-
+        font-family: "Arial Bold", Arial, sans-serif;
+}
+    -->
+    <style>
+      * {
+        font-family:"Roboto","Arial","sans-serif";
+      }
+     
+      h1 {
+        color:#00838f;
+      }
+      h2 {
+        color:#00838f;
+      }
+      p {
+        background-color:#eeeeee;
+      } 
+      
+      .button {
+        border: none;
+        background-color:#00838f;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        text-transform:uppercase;
+      }
+      
+      </style>
 </head>
-<body>
-    <h1>Berlin</h1>
+<body>  
+    <h1>Chatter | app</h1>
 
-<h6>Mostly clouded throughout the day</h6>
+    <!-- the category 1-->
+    <h2>Favorites</h2> 
+     <!-- the channels for category 1-->
+    <strong>Channel-Fav 1</strong><small>03.02.2023</small>
+    <br><strong>Channel-fav 2</strong> <small>03.02.2023</small>
 
-<p><strong>22&deg;C.</strong></p>
+     <!-- the category 2-->
+    <h2>Regular</h2>
+     <!-- the channels for category 2-->
+    <strong>Channel-reg 1</strong> <small>11:32></small>
+    <br><strong>Channel-reg 2</strong> <small>23.02.2023</small>
 
-<!-- Windspeed -->
-<strong>5 KM/H&nbsp;75%</strong>
+     <!-- the selected Channel -->
+    <h1>Channel-Fav 1</h1>
 
-<p>
-    scharfes S :&szlig;zeigen <br>
-grosses AE&Auml;;zeigen <br>
-kleines ae&auml;zeigen <br>
-grosses OE&Ouml;zeigen <br>
-kleines oe&ouml;zeigen <br>
-grosses UE&Uuml;zeigen <br>
-kleines ue&uuml;zeigen <br>
-</p>
+    <button type="button" class="button">Favorites</button>
+    
+     <!-- user name -->
+    <h2>tony</h2>
+    <!-- message content -->
+    <p>
+      dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
+    </p>
+     <!-- the Date and Time when submitted -->
+    <small>09:15</small>
+    
+
+    <h2>tony</h2>
+    <p>
+      dear jonny text here with a long long long long long to info and many many words and some nonsens too too too best regards
+    </p>
+    <small>09:45</small>
+ 
+    <h2>bimbo</h2>
+    <p>
+    dear tony text here with a long long long long long to info and many many words and some nonsens too too too best regards
+    </p>
+    <small>10:30</small>
+    <form>
+      <input type="text" id="mytext" >
+      <!-- input type="submit" value="Send" class="button" -->
+      <button type="button" class="button">Send</button>
+  </form>
+    
 </body>
+</html>
