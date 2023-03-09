@@ -5,80 +5,85 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>chatter|app</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      * {
-        font-family:"Roboto","Arial","sans-serif";
-      }
-     
-      h1 {
-        color:#00838f;
-      }
-      h2 {
-        color:#00838f;
-        font-size:smaller;
-      }
-      p {
-        background-color:#eeeeee;
-      } 
-      
-      .button {
-        border: none;
-        background-color:#00838f;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        text-transform:uppercase;
-      }
-      
-      </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    
 </head>
-<body>  
-  <h1>chatter | app</h1>
+<body> 
+  <section  id="ChanArea" > 
+  <div class="headbar">
+    
+    <img src="https://ip.lfe.mw.tum.de/sections/moocus.png" alt=" talkative duck" 
+    style="height:56px; vertical-align:top">
+    
+    <h1 class="inline">chatter | app</h1>
+  </div>
 
   <!-- the category 1-->
   <h2>Favorites</h2> 
    <!-- the channels for category 1-->
-  <strong>Channel-Fav 1</strong> <small>03.02.2023</small>
-  <br><strong>Channel-Fav 2</strong> <small>03.02.2023</small>
+   <ul>
+    <li class="selected channel-list"><span class="chanName">Channel-Fav 1</span> <span class="time">03.02.2023</span></li>
+    <li class="channel-list"><span class="chanName">Channel-Fav 2</span> <span class="time">03.02.2023</span></li>
+  </ul>
 
   <!-- the category 2-->
   <h2>Regular</h2>
   <!-- the channels for category 2-->
-  <strong>Channel-reg 1</strong> <small>11:32</small>
-  <br><strong>Channel-reg 2</strong> <small>23.02.2023</small>
-
+  <ul>
+    <li class="channel-list"><span class="chanName">Channel-reg 1</span> <span class="time"> 11:32</span></li>
+    <li class="channel-list"><span class="chanName">Channel-reg 2</span> <span class="time">23.02.2023</span></li>
+  </ul>
+</section>
+<div class="vl"></div>
+<section id="chatArea" >
   <!-- the chat area -->
   <!-- the selected Channel -->
-  <h1>Channel-Fav 1</h1>
 
-  <button type="button" class="button">Favorites</button>
-    
-  <!-- user name -->
-  <h2>tony</h2>
-  <!-- message content -->
-  <p>
-    dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
-  </p>
-  <!-- the Date and Time when submitted -->
-  <small>09:15</small>
-    
+ <div  class="headbar">
+  <h1 class="inline">Channel-Fav 1</h1>
 
-  <h2>tony</h2>
-  <p>
-    dear bimbo some addition next text here with a long long long long long to info and many many words and some nonsens too too too best regards
-  </p>
+  <button>Favorites</button>
+
+ </div>
+    
+  <div class="messageOutput">
+    <div class="messageuser">
+      <!-- user name -->
+      <h2>tony</h2>
+      <!-- message content -->
+      
+        dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
+    </div>
+    <!-- the Date and Time when submitted -->
+    <small>09:15</small>
+</div>
+    
+<div class="messageOutput">
+  <div class="messageuser">
+    <h2>tony</h2>
+   
+      dear bimbo some addition next text here with a long long long long long to info and many many words and some nonsens too too too best regards
+    
+  </div>
   <small>09:45</small>
+</div>
  
-  <h2>bimbo</h2>
-  <p>
-    dear tony lalala text here with a long long long long long to info and many many words and some nonsens too too too best regards
-  </p>
-  <small>10:30</small>
-  <form>
-    <input type="text" id="mytext" >
-    <!-- also possible input type="submit" value="Send" class="button" -->
-    <button type="button" class="button">Send</button>
-  </form>
+<div class="messageOutput">
+  <div class="messageuser">
+    <h2>bimbo</h2>
     
+      dear tony lalala text here with a long long long long long to info and many many words and some nonsens too too too best regards
+  
+  </div>
+  <small>10:30</small>
+</div>
+<div class="messageInput">
+    <input type="text" id="inMsg">
+    <!-- also possible input type="submit" value="Send" class="button" -->
+    <button >Send</button>
+</div>
+</section>  
 </body>
 </html>

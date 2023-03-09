@@ -1,0 +1,102 @@
+/* global css */
+* {
+    font-family:"Roboto","Arial","sans-serif";
+    margin: 0;
+    padding: 0px;
+  }
+  body {
+    width: 100%;
+  }
+  section {
+    position: fixed;
+    vertical-align: top;
+    height:100vh;
+  }
+  h1 {
+    color:#00838f;
+  }
+  h2 {
+    color:#00838f;
+    font-size:medium;  
+  }
+/* App bar css */
+#ChanArea {
+  width:399px;
+  height:100vh;
+
+}
+.vl {
+  left: 399px;
+  position: fixed;
+  vertical-align: top;
+  border: 1px solid black;
+  height:100vh;
+}
+#chatArea {
+  left: 400px;
+  width: calc(100% - 400px);
+  /* width: max-content; */
+}
+  .headbar {
+    background-color:lightgray;
+    color: black;
+    height: 75px;
+    font-size: larger;
+    padding: 25px;
+    line-height:  50px;
+
+  }
+  .inline {
+    display: inline;
+  }
+
+/* Channels list css */
+.channel-list{
+  background-color:white;
+  list-style-type:none;
+  box-sizing: border-box;
+  padding: 22px;
+  height: 66px;
+  margin-top: 10px;
+  /* margin-left: 20px; */
+  margin-bottom: 10px;
+}
+.selected {
+  border:gray;
+  background-color: lightgray;
+}
+
+/* Messages css */
+  button {
+    background-color: #00838f;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: larger;
+}
+  
+  .selected {
+    border:green;
+    background-color: lightgray;
+  }
+  .chanName {
+    font-size: larger;
+
+}
+  .time {
+    font-size: smaller;
+}
+ .messageOutput {
+
+ }
+ .messageuser {
+  background-color: #eeeeee;
+  height: 75px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+
+ }
+ .messageInput {
+  border: 1px solid lightgray;
+
+ }
