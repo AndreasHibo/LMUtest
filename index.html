@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>chatter|app</title>
+    <title>Chatter|App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -14,76 +14,87 @@
   <section  id="ChanArea" > 
   <div class="headbar">
     
-    <img src="https://ip.lfe.mw.tum.de/sections/moocus.png" alt=" talkative duck" 
-    style="height:56px; vertical-align:top">
+    <img src="https://ip.lfe.mw.tum.de/sections/moocus.png" alt=" logo duck" 
+    style="height:44px; vertical-align:top;  background-color: #00838f;">
     
     <h1 class="inline">chatter | app</h1>
   </div>
 
   <!-- the category 1-->
-  <h2>Favorites</h2> 
-   <!-- the channels for category 1-->
-   <ul>
-    <li class="selected channel-list"><span class="chanName">Channel-Fav 1</span> <span class="time">03.02.2023</span></li>
-    <li class="channel-list"><span class="chanName">Channel-Fav 2</span> <span class="time">03.02.2023</span></li>
-  </ul>
+  <div>
+    <h2>Favorites</h2> 
+    <!-- the channels for category 1-->
+    <ul class="channel-list">
+      <li class="selected channel-list"><span class="chanName">Channel-Fav 1</span> <span class="time">03.02.2023</span></li>
+      <li><span class="chanName">Channel-Fav 2</span> <span class="time">03.02.2023</span></li>
+    </ul>
 
-  <!-- the category 2-->
-  <h2>Regular</h2>
-  <!-- the channels for category 2-->
-  <ul>
-    <li class="channel-list"><span class="chanName">Channel-reg 1</span> <span class="time"> 11:32</span></li>
-    <li class="channel-list"><span class="chanName">Channel-reg 2</span> <span class="time">23.02.2023</span></li>
-  </ul>
+    <!-- the category 2-->
+    <h2>Regular</h2>
+    <!-- the channels for category 2-->
+    <ul class="channel-list">
+      <li><span class="chanName">Channel-reg 1</span> <span class="time"> 11:32</span></li>
+      <li><span class="chanName">Channel-reg 2</span> <span class="time">23.02.2023</span></li>
+    </ul>
+</div>
 </section>
-<div class="vl"></div>
+<!-- div class="vl"></div -->
 <section id="chatArea" >
   <!-- the chat area -->
   <!-- the selected Channel -->
 
- <div  class="headbar">
-  <h1 class="inline">Channel-Fav 1</h1>
+  <div  class="headbar">
+    <h1 class="inline">Channel-Fav 1</h1>
 
-  <button>Favorites</button>
+    <button>Favorites</button>
 
- </div>
-    
-  <div class="messageOutput">
-    <div class="messageuser">
-      <!-- user name -->
-      <h2>tony</h2>
-      <!-- message content -->
+  </div>
       
-        dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
+  <div class="messageIn">
+      <!-- message content -->
+      <div class="messagecont">
+        <!-- user name -->
+        <h3>tony</h3>
+        <p>
+          dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
+        </p>
+        </div>
+      <!-- the Date and Time when submitted -->
+      <small>09:15</small>
+  </div>
+  <div class="    ">
+    <div class="messagecont">
+      <p>
+        salute tony text here with a long long long long long to info and many many words and some nonsens too too too best regards
+      </p>
     </div>
-    <!-- the Date and Time when submitted -->
-    <small>09:15</small>
-</div>
-    
-<div class="messageOutput">
-  <div class="messageuser">
-    <h2>tony</h2>
-   
-      dear bimbo some addition next text here with a long long long long long to info and many many words and some nonsens too too too best regards
-    
+  <small>09:30</small>
   </div>
-  <small>09:45</small>
-</div>
- 
-<div class="messageOutput">
-  <div class="messageuser">
-    <h2>bimbo</h2>
-    
-      dear tony lalala text here with a long long long long long to info and many many words and some nonsens too too too best regards
+      
+  <div class="messageIn">
+    <div class="messagecont">
+      <h3>tony</h3>
+      <p>
+        dear bimbo some addition next text here with a long long long long long to info and many many words and some nonsens too too too best regards
+      </p>
+    </div>
+    <small>09:45</small>
+  </div>
   
+  <div class="messageIn">
+    <div class="messagecont">
+      <h3>bimbo</h3>
+      <p>
+        dear tony lalala text here with a long long long long long to info and many many words and some nonsens too too too best regards
+      </p>
+    </div>
+    <small>10:30</small>
   </div>
-  <small>10:30</small>
-</div>
-<div class="messageInput">
-    <input type="text" id="inMsg">
-    <!-- also possible input type="submit" value="Send" class="button" -->
-    <button >Send</button>
-</div>
+  <div id="input-area">
+      <input type="text" id="message-input" name="message-input" minlength="1" maxlength="500" 
+      placeholder="... write your message">
+      <button >Send</button>
+  </div>
 </section>  
 </body>
 </html>

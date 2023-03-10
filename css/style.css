@@ -13,24 +13,21 @@
     height:100vh;
   }
   h1 {
+    font-size: 18px;
     color:#00838f;
   }
   h2 {
     color:#00838f;
-    font-size:medium;  
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 22px 22px 11px 11px;   
   }
 /* App bar css */
 #ChanArea {
   width:399px;
   height:100vh;
-
-}
-.vl {
-  left: 399px;
-  position: fixed;
-  vertical-align: top;
-  border: 1px solid black;
-  height:100vh;
+  border-right: 1px solid rgb(199, 199, 199);
 }
 #chatArea {
   left: 400px;
@@ -38,12 +35,12 @@
   /* width: max-content; */
 }
   .headbar {
-    background-color:lightgray;
-    color: black;
-    height: 75px;
+    background-color: #eeeeee;
+    color: #00838f;
+    height: 66px;;
     font-size: larger;
-    padding: 25px;
-    line-height:  50px;
+    line-height: 66px;
+    padding: 0px 22px 0px 22px;
 
   }
   .inline {
@@ -54,16 +51,15 @@
 .channel-list{
   background-color:white;
   list-style-type:none;
+}
+.channel-list li {
   box-sizing: border-box;
   padding: 22px;
   height: 66px;
-  margin-top: 10px;
-  /* margin-left: 20px; */
-  margin-bottom: 10px;
 }
-.selected {
-  border:gray;
-  background-color: lightgray;
+.channel-list li.selected {
+  border-right: 3px solid #00838f;
+  background-color:#eeeeee;
 }
 
 /* Messages css */
@@ -85,18 +81,33 @@
   .time {
     font-size: smaller;
 }
- .messageOutput {
-
+ .messagecont {
+  padding: 11px;
+  margin: 10px 11px;
  }
- .messageuser {
+ .messagecont h3 {
+  font-size: 14px;
+    color: #00838f;
+    margin-bottom: 11px;
+ }
+ .messagecont p {
+  font-size: 14px;
+ }
+ .messageOut div {
+  background-color: #00838f;
+  color: white;
+}
+ .messageIn div {
   background-color: #eeeeee;
-  height: 75px;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-
- }
+}
  .messageInput {
   border: 1px solid lightgray;
 
  }
+ /* .vl {
+  left: 399px;
+  position: fixed;
+  vertical-align: top;
+  border: 1px solid black;
+  height:100vh;
+} */
