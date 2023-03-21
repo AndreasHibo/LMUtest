@@ -23,28 +23,61 @@
     font-weight: bold;
     margin: 22px 22px 11px 11px;   
   }
+  #logo{
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    height:44px; vertical-align:top;  
+    background-color: #00838f;
+    border-radius: 8px;
+    border: none;
+  }
 /* App bar css */
-#ChanArea {
+#channel-area {
   width:399px;
   height:100vh;
   border-right: 1px solid rgb(199, 199, 199);
-}
-#chatArea {
-  left: 400px;
-  width: calc(100% - 400px);
-  /* width: max-content; */
+} 
+
+#title-can{
+  margin: 5px 5px 5px 60px;
 }
   .headbar {
     background-color: #eeeeee;
     color: #00838f;
-    height: 66px;;
-    font-size: larger;
+    height: 66px;
+    /* font-size: larger; */
     line-height: 66px;
     padding: 0px 22px 0px 22px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  /* .headbar.#favorite-button {
+    a ??????
+
+  } */
+  
+  .titel {
+    display: inline;
 
   }
-  .inline {
-    display: inline;
+  .fab{
+    width: 44px;
+    height: 44px;
+    background-color: #00838f;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 #aaaaaa;
+
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    line-height: 44px;
+
+    position: absolute;
+    top: 44px;
+    right: 22px;
+    cursor: pointer;
   }
 
 /* Channels list css */
@@ -56,6 +89,10 @@
   box-sizing: border-box;
   padding: 22px;
   height: 66px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 .channel-list li.selected {
   border-right: 3px solid #00838f;
@@ -69,42 +106,119 @@
     text-transform: uppercase;
     font-size: larger;
 }
+#chat-area {
+  left: 400px;
+  width: calc(100% - 400px);
+  display: flex;
+  flex-direction: column;
+  box-sizing:border-box;
+  padding: 0px;
+  
+  /* width: max-content; */
+}
   
   .selected {
     border:green;
     background-color: lightgray;
   }
   .chanName {
-    font-size: larger;
+    font-size: 16px;
+    margin: 0px 22px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1 1 auto;
 
 }
-  .time {
-    font-size: smaller;
+  .timestamp {
+    font-size: 12px;
+    color: #666666;
 }
- .messagecont {
-  padding: 11px;
-  margin: 10px 11px;
+.message {
+  width: 75%;
+}
+.message-wrapper{
+  display: flex;
+  align-items: flex-end;
  }
- .messagecont h3 {
+ i{
+  align-self: center;
+  padding: 0px 10px;
+ } 
+ .message-content {
+  text-align: left;
+  border-radius: 15px;
+  padding: 10px;
+ }
+ 
+ .message-content h3 {
   font-size: 14px;
     color: #00838f;
     margin-bottom: 11px;
  }
- .messagecont p {
+ .message-content p {
   font-size: 14px;
  }
- .messageOut div {
+ .incoming-message {
+  align-self:flex-start;
+  
+ }
+ .incoming-message .message-content {
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
+ }
+
+.outgoing-message {
+  align-self:flex-end;
+}
+.outgoing-message .message-content {
   background-color: #00838f;
   color: white;
-}
- .messageIn div {
-  background-color: #eeeeee;
-}
- .messageInput {
-  border: 1px solid lightgray;
-
+  border: 1px solid #eeeeee;
+  
  }
- /* .vl {
+
+ .outgoing-message .message-wrapper{
+  flex-direction: row-reverse;
+ }
+ .outgoing-message i{
+  align-self: center;
+  padding: 0px 10px;
+ } 
+ .outgoing-message span{
+  text-align:right
+ } 
+ #input-area {
+  align-self:flex-end;
+  width: 100%;
+  height:66px;
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: space-between;
+ }
+ #emoticon-button{
+  background-color: #00838f;
+  border-radius: 50%;
+  margin: 10px;
+  align-self: center;
+ }
+ #message-input {
+  font-size: 10px;
+  margin:10px 5px;
+  width: 85%;
+ }
+ #send-button{
+  margin: 10px;
+  color: #00838f;
+  align-self: center;
+ }
+ /*
+ .outgoing-messag .message-content{
+  background-color: #00838f;
+  color: white;
+  border: 1px solid #00838f;
+}
+ 
+.vl {
   left: 399px;
   position: fixed;
   vertical-align: top;
