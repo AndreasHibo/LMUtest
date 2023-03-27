@@ -6,158 +6,140 @@
     <title>Chatter|App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link href="./css/style.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+    
     
 </head>
-<body> 
+<body  onload="consoleLog(`Chatter|App started`);"> 
   <section  id="channel-area" > 
   <div class="headbar">
-    <a class="fab">+</a>
+    
     <img id="logo" src="https://ip.lfe.mw.tum.de/sections/moocus.png" alt=" logo duck" >
     
     <h1 id="title-can" class="titel">chatter | app</h1>
   </div>
 
+  <a class="fab">+</a>
   <!-- the category 1-->
-  <div>
+  <div class="channel-list-area">
     <h2>Favorites</h2> 
     <!-- the channels for category 1-->
     <ul class="channel-list">
-      <li class="selected channel-list"><i class="material-icons" aria-errormessage="group">group</i><span class="chanName">Channel-Fav 1</span> <span class="timestamp">03.02.2023</span></li>
-      <li class="channel-list"><i class="material-icons" aria-errormessage="group">group</i><span class="chanName">Channel-Fav 2</span> <span class="timestamp">03.02.2023</span></li>
+      <li id="channel1" class="selected channel-list" onclick="switchChannel(channel1)"><i class="material-icons">group</i><span class="chanName">Channel-Fav 1</span> <span class="timestamp">03.02.2023</span></li>
+      <li id="channel2" class="channel-list" onclick="switchChannel(channel2)"><i class="material-icons">group</i><span class="chanName">Channel-Fav 2</span> <span class="timestamp">03.02.2023</span></li>
     </ul>
 
     <!-- the category 2-->
     <h2>Regular</h2>
     <!-- the channels for category 2-->
     <ul class="channel-list">
-      <li class="channel-list"><i class="material-icons" aria-errormessage="group">group</i><span class="chanName">Channel-reg 1</span> <span class="timestamp">11:32</span></li>
-      <li class="channel-list"><i class="material-icons" aria-errormessage="group">group</i><span class="chanName">Channel-reg 2</span> <span class="timestamp">23.02.2023</span></li>
+      <li id="channel3" class="channel-list" onclick="switchChannel(channel3)"><i class="material-icons">group</i><span class="chanName">Channel-reg 1</span> <span class="timestamp">11:32</span></li>
+      <li id="channel4" class="channel-list" onclick="switchChannel(channel4)"><i class="material-icons">group</i><span class="chanName">Channel-reg 2</span> <span class="timestamp">23.02.2023</span></li>
     </ul>
 </div>
 </section>
 <!-- div class="vl"></div -->
-<section id="chat-area" >
+<section id="message-area" >
   <!-- the chat area -->
   <!-- the selected Channel -->
 
   <div  class="headbar">
-    <h1 class="titel">Channel-Fav 1</h1>
-    <!-- a class="material-icons" id="favorite-button" >favorite</a -->
-    <!-- button>Favorites</button -->
+    <h1 id="channelName" class="titel">Channel-Fav 1</h1>
+    <a id="favorite-button" class="material-icons">favorite</a>
+    <!-- a class="material-icons" id="favorite-button" >favorite</a  -->
+    <!-- button>Favorites</button 
     <button class="mdc-button mdc-button--outlined mdc-button--icon-leading">
       <span class="mdc-button__ripple"></span>
-      <i class="material-icons mdc-button__icon" aria-errormessage="favorite">favorite</i>
-    </button>
+      <i id="channelButton" class="material-icons mdc-button__icon" >favorite</i>
+    </button -->
   </div>
-      
-  <div class="message incoming-message">
-    <div class="message-wrapper">
-      <i class="material-icons" aria-errormessage="account">account_circle</i>
-      <div>
-        <div class="message-content">
-          <h3>tony</h3>
-          <p>
-            dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
+  <div id="chat-area">
+    <div class="message incoming-message">
+      <div class="message-wrapper">
+        <i class="material-icons">account_circle</i>
+          <div class="message-content">
+            <h3>tony</h3>
+            <p>
+              dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
+            </p>  
+          </div>
+      </div>
+      <span class="timestamp">09:15</span>
+    </div>
+    <div class="message outgoing-message">
+      <div class="message-wrapper">
+        <i class="material-icons" aria-errormessage="account">account_circle</i>
+          <div class="message-content">
+            <p>
+              salute tony text here with a long long long long long to info and many many words and some nonsens too too too best regards
+            </p>
+          </div>
+      </div>
+      <span class="timestamp">09:30</span >
+    </div>
+    <div class="message outgoing-message">
+      <div class="message-wrapper">
+        <i class="material-icons" aria-errormessage="account">account_circle</i>
+          <div class="message-content">
+            <p>
+              salute1 tony text here with a long long long long long to info and many many words and some nonsens too too too best regards
+            </p>
+          </div>
+      </div>
+      <span class="timestamp">09:35</span >
+    </div>
+    <div class="message outgoing-message">
+      <div class="message-wrapper">
+        <i class="material-icons" aria-errormessage="account">account_circle</i>
+          <div class="message-content">
+            <p>
+              salute3 tony 
+            </p>
+          </div>
+      </div>
+      <span class="timestamp">09:45</span >
+    </div> 
+    <div class="message incoming-message">
+      <div class="message-wrapper">
+        <i class="material-icons" aria-errormessage="account">account_circle</i>
+          <div class="message-content">
+            <h3>tony</h3>
+            <p>
+              dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
+            </p>  
+          </div>
+      </div>
+      <span class="timestamp">09:50</span>
+    </div> 
+    <div class="message incoming-message">
+      <div class="message-wrapper">
+        <i class="material-icons" aria-errormessage="account">account_circle</i>
+          <div class="message-content">
+            <h3>reni</h3>
+            <p>
+              dear bimbo lalala text here with a long long long long long to info and many many words and some nonsens too too too best regards
           </p>  
-        </div>
-        <span class="timestamp">09:15</span>
+          </div>
       </div>
-    </div>
+      <span class="timestamp">09:50</span>
+    </div>  
+    <div class="message outgoing-message">
+      <div class="message-wrapper">
+        <i class="material-icons" aria-errormessage="account">account_circle</i>
+          <div class="message-content">
+            <p>
+              regards to all
+            </p>
+          </div>
+      </div>
+      <span class="timestamp">09:45</span >
+    </div> 
   </div>
-  <div class="message outgoing-message">
-    <div class="message-wrapper">
-      <i class="material-icons" aria-errormessage="account">account_circle</i>
-      <div>
-        <div class="message-content">
-          <p>
-            salute tony text here with a long long long long long to info and many many words and some nonsens too too too best regards
-          </p>
-        </div>
-        <div style="text-align:right">
-          <span class="timestamp">09:30</span >
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="message outgoing-message">
-    <div class="message-wrapper">
-      <i class="material-icons" aria-errormessage="account">account_circle</i>
-      <div>
-        <div class="message-content">
-          <p>
-            salute1 tony text here with a long long long long long to info and many many words and some nonsens too too too best regards
-          </p>
-        </div>
-        <div style="text-align:right">
-          <span class="timestamp">09:35</span >
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="message outgoing-message">
-    <div class="message-wrapper">
-      <i class="material-icons" aria-errormessage="account">account_circle</i>
-      <div>
-        <div class="message-content">
-          <p>
-            salute3 tony 
-          </p>
-        </div>
-        <div style="text-align:right">
-          <span class="timestamp">09:45</span >
-        </div>
-      </div>
-    </div>
-  </div> 
-  <div class="message incoming-message">
-    <div class="message-wrapper">
-      <i class="material-icons" aria-errormessage="account">account_circle</i>
-      <div>
-        <div class="message-content">
-          <h3>tony</h3>
-          <p>
-            dear bimo text here with a long long long long long to info and many many words and some nonsens too too too best regards
-          </p>  
-        </div>
-        <span class="timestamp">09:50</span>
-      </div>
-    </div>
-  </div> 
-  <div class="message incoming-message">
-    <div class="message-wrapper">
-      <i class="material-icons" aria-errormessage="account">account_circle</i>
-      <div>
-        <div class="message-content">
-          <h3>reni</h3>
-          <p>
-            dear bimbo lalala text here with a long long long long long to info and many many words and some nonsens too too too best regards
-         </p>  
-        </div>
-        <span class="timestamp">09:50</span>
-      </div>
-    </div>
-  </div>  
-  <div class="message outgoing-message">
-    <div class="message-wrapper">
-      <i class="material-icons" aria-errormessage="account">account_circle</i>
-      <div>
-        <div class="message-content">
-          <p>
-            regards to all
-          </p>
-        </div>
-        <div style="text-align:right">
-          <span class="timestamp">09:45</span >
-        </div>
-      </div>
-    </div>
-  </div> 
-  
   <div id="input-area">
-    <i class="material-icons" id="emoticon-button" aria-errormessage="emotion">insert_emoticon</i>
+    <i class="material-icons" id="emoticon-button">insert_emoticon</i>
     <input
       type="text"
       id="message-input"
@@ -166,8 +148,11 @@
       maxlength="500"
       placeholder="... write your message"
        >
-    <a class="material-icons button" id="send-button" aria-errormessage="send">send</a>
+    <a class="material-icons button" id="send-button" onclick="sendMessage()">send</a>
   </div>
-</section>  
+</section>
+<script type="text/javascript" src="./js/channels.js"></script>  
+<script type="text/javascript" src="./js/main.js"></script>
+
 </body>
 </html>

@@ -53,15 +53,6 @@
     display: flex;
     justify-content: space-between;
   }
-  /* .headbar.#favorite-button {
-    a ??????
-
-  } */
-  
-  .titel {
-    display: inline;
-
-  }
   .fab{
     width: 44px;
     height: 44px;
@@ -79,8 +70,23 @@
     right: 22px;
     cursor: pointer;
   }
+  
+  /* .headbar.#favorite-button {
+    a ??????
+
+  } */
+  
+  .titel {
+    display: inline;
+
+  }
+  
 
 /* Channels list css */
+#channel-list-area{
+  height: calc(100vh - 66px);
+  overflow-y: auto;
+}
 .channel-list{
   background-color:white;
   list-style-type:none;
@@ -98,6 +104,10 @@
   border-right: 3px solid #00838f;
   background-color:#eeeeee;
 }
+.channel-list i {
+  font-size: 20px;
+  color: #666666;
+}
 
 /* Messages css */
   button {
@@ -107,12 +117,7 @@
     font-size: larger;
 }
 #chat-area {
-  left: 400px;
-  width: calc(100% - 400px);
-  display: flex;
-  flex-direction: column;
-  box-sizing:border-box;
-  padding: 0px;
+ 
   
   /* width: max-content; */
 }
@@ -133,21 +138,57 @@
     font-size: 12px;
     color: #666666;
 }
+#message-area {
+  left: 400px;
+  width: calc(100% - 400px);
+}
+#chat-area {
+  box-sizing: border-box;
+  padding: 22px;
+  height: calc(100vh - 2 * 66px);
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
 .message {
-  width: 75%;
+  margin-bottom: 22px;
+  max-width: 75%;
+}
+.message i {
+  font-size: 33px;
+  color: #666666;
+}
+.incoming-message .timestamp {
+  margin-left: 44px;
+}
+  
+
+.outgoing-message .timestamp {
+  margin-right:44px;
+}
+/* 
+.incoming-message i {
+  align-self:center;
+  padding: 10px 10px;
+ }
+.outgoing-message i {
+  align-self: flex-end;
+  padding: 0px 10px;
+ } */
+
+.outgoing-message {
+ align-self: flex-end;
+ text-align: right;
 }
 .message-wrapper{
   display: flex;
   align-items: flex-end;
  }
- i{
-  align-self: center;
-  padding: 0px 10px;
- } 
  .message-content {
+  padding: 11px;
+  margin: 0px 11px;
   text-align: left;
-  border-radius: 15px;
-  padding: 10px;
  }
  
  .message-content h3 {
@@ -164,52 +205,57 @@
  }
  .incoming-message .message-content {
   background-color: #eeeeee;
-  border: 1px solid #eeeeee;
+  border-radius: 20px 20px 20px 5px;
  }
 
 .outgoing-message {
   align-self:flex-end;
+  text-align: right;
 }
 .outgoing-message .message-content {
   background-color: #00838f;
   color: white;
-  border: 1px solid #eeeeee;
+  border-radius: 20px 20px 5px 20px;
   
  }
 
  .outgoing-message .message-wrapper{
   flex-direction: row-reverse;
  }
- .outgoing-message i{
-  align-self: center;
-  padding: 0px 10px;
- } 
  .outgoing-message span{
   text-align:right
  } 
  #input-area {
-  align-self:flex-end;
-  width: 100%;
-  height:66px;
-  background-color: #eeeeee;
+  box-sizing: border-box;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  width: 100%;
+  height: 66px;
+  position: absolute;
+  bottom: 0;
+  background-color: #eeeeee;
+  padding: 0 22px;
  }
  #emoticon-button{
+  padding: 11px;
+  color: white;
   background-color: #00838f;
   border-radius: 50%;
-  margin: 10px;
-  align-self: center;
+  cursor: pointer;
  }
  #message-input {
-  font-size: 10px;
-  margin:10px 5px;
-  width: 85%;
+  flex-basis: 100%;
+    height: 44px;
+    margin: 0 22px;    
+    padding: 0 11px;
+    border: none;
+    border-radius: 11px;
+    font-size: 12px;
  }
  #send-button{
-  margin: 10px;
   color: #00838f;
-  align-self: center;
+  cursor: pointer;
  }
  /*
  .outgoing-messag .message-content{
