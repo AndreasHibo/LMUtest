@@ -11,15 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    
 </head>
-<body  onload="init()"> 
+<body  onload="init()">   
   <section id="channel-area">
     <div class="headbar">
       <img src="https://ip.lfe.mw.tum.de/sections/moocus.png" alt="logo" id="logo">
     <h1 id="app-title">chatter | app</h1>
   </div>
-  <a id="fab" class="button">+</a>
+  <a id="fab" class="button" onclick="addChannel()">+</a>
   <div id="channel-list-area">
     <h2>Favorites</h2>
     <ul class="channel-list" id="favorite-channels"></ul>
@@ -31,7 +30,7 @@
   <section id="message-area">
   <div class="headbar" id="message-area-header">
     <h1></h1>
-    <a id="favorite-button" class="material-icons button"></a>
+    <a id="favorite-button" class="material-icons button" onclick="toggleFavorite();"></a>
   </div>
   <div id="chat-area">
     <p id="select-channel">Select a channel to start messaging.</p>
@@ -49,6 +48,11 @@
     <div id="emoji-list"></div>
   </div>
 </section>
+<!-- div id="dialog-newChannel" title="Empty the recycle bin?">
+  <div id="" title="Empty the recycle bin?">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+</div>
+<p>Sed vel diam id libero</p -->
 <script src="./js/channels.js"></script> 
 <script src="./js/messages.js"></script> 
 <script src="./js/main.js"></script>

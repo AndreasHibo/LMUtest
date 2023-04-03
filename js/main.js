@@ -1,18 +1,52 @@
 //  the main functions:
 let channels = [];
 let messages = [];
-let selectedChannel = "";
+let selectedChannel;
+let mylanguage = navigator.language;
+let nextChannelid = 5;
+const oneday =  (new Date(2023, 03, 02, 00, 00, 00, 0) - new Date(2023, 03, 01, 00, 00, 00, 0));
 // get browser language for formatting of time stamp
 const browserLanguage = navigator.language || navigator.userLanguage; 
-function Message(name, date, chan, who, ttt){
+function Message(name, date, chan, who, text){
     this.createdBy = name;
     this.createdOn = date;
     this.channel = chan;
     this.own = who;
-    this.text = ttt;
+    this.text = text;
+    this.yesterdayOrOlder = function() {
+        return new Date().getDate() - createdOn.getDate() > 1
+    };
+}
+function Channel(id, name, favorite){
+    this.id = id;
+    this.name = name; 
+    this.favorite = favorite; 
+    this.messages = [];
+    this.latest = function(){
+        if (!!this.messages.length){
+            return new Date(Math.max(...this.messages.map(x => x.createdOn)));
+        } else {
+            return "No Messages";
+        }
+
+    },
+    this.latestMessage = function () {
+        if (!!messages.length){
+            const latest = new Date(Math.max(...this.messages.map(x => x.createdOn)));
+            // if message is from yesterday or older, display date, else display time
+            if (new Date() - latest > oneday) {
+                return latest.toLocaleDateString(navigator.language, {year:"numeric", month:"numeric", day: "numeric", hour:"numeric", minute:"numeric"})
+            } else {
+                return latest.toLocaleTimeString(navigator.language, {hour:"numeric", minute:"numeric"})
+            }
+        } else {
+            return "No Messages"
+        };
+    }
 }
 function init() {
     consoleLog("App is initialized");
+    consoleLog("mylanguage : " + mylanguage);
     getChannels();
     getMessages();
     loadMessagesIntoChannel();
@@ -27,11 +61,7 @@ function init() {
       .addEventListener("click", toggleEmojiArea);
   }
   function getChannels(){
-    // initMocChannels();
     channels = mockChannels;
-
-    // favoriteList = document.getElementById('favorite-channels');
-    // regularList = document.getElementById('regular-channels');
 }
 function getMessages(){
     messages = mockMessages ;
@@ -58,15 +88,9 @@ function sendMessage() {
       const myUserName = "Basti";
       const own = true;
       const channelID = selectedChannel.id;
-      const d = new Date();
-      const YYYY = d.getFullYear();
-      const MM = d.getMonth() + 1;
-      const DD = d.getDate();
-      const HH = d.getHours();
-      const MI = d.getMinutes();
-      const datum = DD + "." + MM + "." +YYYY + " " + HH + ":" + MM;
+      const datum = new Date();
       const message = new Message(myUserName, datum, own, channelID, text);
-      console.log("New message: ", message);
+      // console.log("New message: ", message);
       selectedChannel.messages.push(message);
       document.getElementById(selectedChannel.id).classList.add("selected");
       document.getElementById("message-input").value = "";
@@ -76,6 +100,23 @@ function sendMessage() {
       return;
     }
   }
+ 
+function addChannel(){
+    let name = prompt("Channel Name", "my channel name");
+    if (!!name) {
+        let id = "channel" + nextChannelid;
+        nextChannelid =  nextChannelid + 1;
+        const channel = new Channel(id, name, Boolean(false));
+        channels.push(channel);
+
+        // selectedChannel = channel;
+        displayChannels();
+        switchChannel(id);
+        
+        
+        
+    }
+}
 
 function toggleEmojiArea(){
 
@@ -89,7 +130,8 @@ function consoleLog(logInfo) {
     const MI = d.getMinutes();
     const SS = d.getSeconds();
     const MS = d.getMilliseconds();
-    logInfo =  YYYY + "-"  + MM  + "-" +  DD  + "  " + HH  + ":" + MI  + ":"  + SS + ":"  + MS + "   " + logInfo ;    console.log(logInfo);
+    logInfo =  YYYY + "-"  + MM  + "-" +  DD  + "  " + HH  + ":" + MI  + ":"  + SS + ":"  + MS + "   " + logInfo ;    
+    console.log(logInfo);
 }
 
 
@@ -97,7 +139,8 @@ function displayChannels(){
     const favoriteList = document.getElementById('favorite-channels') ;
     const regularList = document.getElementById('regular-channels');
     favoriteList.innerHTML = "";
-     regularList.innerHTML = "";
+    regularList.innerHTML = "";
+    channels.sort((a, b) =>  b.latest() - a.latest());
     channels.forEach((channel) => {
         const currentChannelHtmlString =
           `  <li id="` +
@@ -108,7 +151,7 @@ function displayChannels(){
                 channel.name +
           `     </span>
                  <span class="timestamp">` +
-                channel.latestMessage +
+                 channel.latestMessage() +
           `     </span>
             </li>`;
             
@@ -119,6 +162,9 @@ function displayChannels(){
         }
           
       });
+      if (!!selectedChannel) {
+        document.getElementById(selectedChannel.id).classList.add("selected");
+    }
       
 }
 function loadMessagesIntoChannel(){
@@ -131,20 +177,29 @@ function loadMessagesIntoChannel(){
     })  
 }
 function showHeader(){
-   //  $("h1 #message-area-header")= selectedChannel.name;
+
     let chName = document.getElementsByTagName('h1')[1];
     chName.innerHTML = selectedChannel.name;
     document.getElementById('favorite-button').innerHTML = selectedChannel.favorite ? 'favorite' : 'favorite_border';
 }
+function prtDate (myDate){    
+    // new Date().getDate();  oneday
+    if (new Date() - myDate > oneday) {
+        return myDate.toLocaleDateString(navigator.language, {year:"numeric", month:"numeric", day: "numeric", hour:"numeric", minute:"numeric"})
+    } else {
+        return myDate.toLocaleTimeString(navigator.language, {hour:"numeric", minute:"numeric"})
+    }
+}
 function showMessages(){
     let messageString = '';
+    selectedChannel.messages.sort((a, b) => a.createdOn - b.createdOn);
     selectedChannel.messages.forEach((message) => {
-       
+        const msgDate =  prtDate(message.createdOn); 
         if (message.own ){
         messageString = messageString +
         '<div class="message outgoing-message"><div class="message-wrapper"><div class="message-content"><p id="myFirstMessage">' +
         message.text + '</p></div><i class="material-icons">account_circle</i></div><span class="timestamp">' +
-        message.createdOn + '</span></div>'
+        msgDate + '</span></div>'
         } else {
             messageString = messageString +
         '<div class="message incoming-message"><div class="message-wrapper"><i class="material-icons">account_circle</i><div class="message-content"><h3>'
@@ -152,7 +207,7 @@ function showMessages(){
             '</h3><p> '
              + message.text + 
             '</p></div></div><span class="timestamp">'
-             + message.createdOn + 
+             + msgDate + 
              '</span></div>'
         }
         /* 
@@ -182,6 +237,11 @@ function showMessages(){
         */
     })
     document.getElementById('chat-area').innerHTML = messageString;
+}
+function toggleFavorite(){
+    selectedChannel.favorite = !selectedChannel.favorite;
+    displayChannels();
+    showHeader();
 }
 function loadEmojis(){
 
